@@ -9,17 +9,11 @@ pub struct Multiplayer {
 
 impl Multiplayer {
     pub fn new(player_names: [&str; 2], difficulty: Difficulty) -> Multiplayer {
-        let mut players: Vec<Player> = player_names
-            .iter()
-            .map(|name| Player::new(name.to_string()))
-            .collect();
+        let mut players: Vec<Player> = player_names.iter().map(|name| Player::new(name.to_string())).collect();
 
         players[0].is_active = true;
 
-        Multiplayer {
-            players,
-            game: Game::new(difficulty),
-        }
+        Multiplayer { players, game: Game::new(difficulty) }
     }
 
     pub fn get_board(&self) -> &Board {
@@ -27,10 +21,7 @@ impl Multiplayer {
     }
 
     pub fn current_player_mut(&mut self) -> &mut Player {
-        self.players
-            .iter_mut()
-            .find(|player| player.is_active)
-            .unwrap()
+        self.players.iter_mut().find(|player| player.is_active).unwrap()
     }
 
     pub fn current_player(&self) -> &Player {
@@ -51,9 +42,7 @@ impl Multiplayer {
     }
 
     fn switch_active_player(&mut self) {
-        self.players
-            .iter_mut()
-            .for_each(|player| player.is_active = !player.is_active);
+        self.players.iter_mut().for_each(|player| player.is_active = !player.is_active);
     }
 
     fn did_game_finish(&self) -> bool {
@@ -105,13 +94,7 @@ mod tests {
     fn test_get_board_size() {
         let mult = Multiplayer::new(["1", "2"], Difficulty::Easy);
 
-        assert_eq!(
-            mult.get_board_dimentions(),
-            Size {
-                width: 10,
-                height: 10
-            }
-        );
+        assert_eq!(mult.get_board_dimentions(), Size { width: 10, height: 10 });
     }
 
     #[test]
