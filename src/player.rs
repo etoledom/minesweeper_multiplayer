@@ -1,7 +1,9 @@
 use minesweeper_core::Point;
+use uuid::Uuid;
 
 #[derive(Debug)]
 pub struct Player {
+    pub id: String,
     pub name: String,
     pub is_active: bool,
     pub mines_found: Vec<Point>,
@@ -10,6 +12,7 @@ pub struct Player {
 impl Player {
     pub fn new(name: impl Into<String>) -> Player {
         Player {
+            id: Uuid::new_v4().to_string(),
             name: name.into(),
             is_active: false,
             mines_found: vec![],
