@@ -20,6 +20,10 @@ impl Multiplayer {
         self.game.get_board()
     }
 
+    pub fn get_difficulty(&self) -> &Difficulty {
+        &self.game.difficulty
+    }
+
     pub fn current_player_mut(&mut self) -> &mut Player {
         self.players.iter_mut().find(|player| player.is_active).unwrap()
     }
