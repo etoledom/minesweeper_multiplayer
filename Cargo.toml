@@ -2,6 +2,16 @@
 name = "minesweeper_multiplayer"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "Core logic for Minesweeper game"
+homepage = "https://github.com/etoledom/minesweeper_multiplayer"
+documentation = "https://github.com/etoledom/minesweeper_multiplayer"
+repository = "https://github.com/etoledom/minesweeper_multiplayer"
+readme = "README.md"
+include = [
+    "src/**/*.rs",
+    "Cargo.toml",
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
